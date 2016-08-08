@@ -58,6 +58,8 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         memeImageView.image = nil
         // Reset the text.
         resetTextFields()
+        // Disable the shae button.
+        shareButton.enabled = false
     }
 
     @IBAction func pickImageFromCamera(sender: AnyObject) {
@@ -79,6 +81,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateMemeViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        // Configure the textfields.
+        configureTextField(topTextField, delegate: topTextFieldDelegate)
+        configureTextField(bottomTextField, delegate: bottomTextFieldDelegate)
+        
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -98,9 +104,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         // Subscribe to the keyboard notifications.
         subscribeToKeyboardNotifications()
         
-        // Configure the textfields.
-        configureTextField(topTextField, delegate: topTextFieldDelegate)
-        configureTextField(bottomTextField, delegate: bottomTextFieldDelegate)
+        
         
         // Disabled the share button if there is no image.
         if memeImageView.image == nil {
@@ -139,7 +143,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         // Adjust the frames's y origin to make room for the keyboard.
         if bottomTextField.isFirstResponder() {
             // Only move the frame if it is the bottom text field.
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
     }
     
