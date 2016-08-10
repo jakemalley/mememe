@@ -18,14 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        // TEMP ADD DATA TO MEMES
-        let image = UIImage(named: "splashScreen")!
-        
-        for i in 0...12 {
-            memes.append(Meme(topText: "TOP \(i)", bottomText: "BOTTOM \(i)", originalImage: image, memedImaged: image, dateCreated: NSDate()))
-        }
-        
-        
         return true
     }
 

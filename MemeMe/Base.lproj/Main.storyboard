@@ -58,12 +58,12 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5w-05-gcL">
-                                <rect key="frame" x="20" y="147" width="560" height="17"/>
+                                <rect key="frame" x="20" y="197" width="560" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNp-be-fHc">
-                                <rect key="frame" x="20" y="456" width="560" height="17"/>
+                                <rect key="frame" x="20" y="406" width="560" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
@@ -91,14 +91,14 @@
                             <constraint firstItem="API-EJ-xUk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Ins-qi-Nkt"/>
                             <constraint firstItem="PNp-be-fHc" firstAttribute="leading" secondItem="Dno-FG-Y3A" secondAttribute="leading" constant="20" id="Jku-2e-rL3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PbI-Tq-QXs" secondAttribute="trailing" constant="-20" id="NOI-M0-WNo"/>
-                            <constraint firstItem="PNp-be-fHc" firstAttribute="top" secondItem="Dno-FG-Y3A" secondAttribute="bottom" constant="-100" id="T1S-ry-1Il"/>
+                            <constraint firstItem="PNp-be-fHc" firstAttribute="top" secondItem="Dno-FG-Y3A" secondAttribute="bottom" constant="-150" id="T1S-ry-1Il"/>
                             <constraint firstItem="Dno-FG-Y3A" firstAttribute="top" secondItem="PbI-Tq-QXs" secondAttribute="bottom" id="Won-9F-ae3"/>
                             <constraint firstItem="PbI-Tq-QXs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ZDF-uu-Mkv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="API-EJ-xUk" secondAttribute="trailing" constant="-20" id="bfB-FJ-pXH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dno-FG-Y3A" secondAttribute="trailing" constant="-20" id="cMp-VV-OAa"/>
                             <constraint firstItem="PNp-be-fHc" firstAttribute="trailing" secondItem="Dno-FG-Y3A" secondAttribute="trailing" constant="-20" id="cPb-Ac-HCL"/>
                             <constraint firstItem="X5w-05-gcL" firstAttribute="leading" secondItem="Dno-FG-Y3A" secondAttribute="leading" constant="20" id="gRv-Yf-A0f"/>
-                            <constraint firstItem="Dno-FG-Y3A" firstAttribute="top" secondItem="X5w-05-gcL" secondAttribute="bottom" constant="-100" id="gwO-VK-yIN"/>
+                            <constraint firstItem="Dno-FG-Y3A" firstAttribute="top" secondItem="X5w-05-gcL" secondAttribute="bottom" constant="-150" id="gwO-VK-yIN"/>
                             <constraint firstItem="Dno-FG-Y3A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qkB-mG-JSc"/>
                             <constraint firstItem="X5w-05-gcL" firstAttribute="trailing" secondItem="Dno-FG-Y3A" secondAttribute="trailing" constant="-20" id="uOx-eB-z1Q"/>
                             <constraint firstItem="API-EJ-xUk" firstAttribute="top" secondItem="Dno-FG-Y3A" secondAttribute="bottom" id="xOx-At-bok"/>
@@ -172,7 +172,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="flowLayout" destination="HsD-wA-n7K" id="zNF-lz-22E"/>
+                        <outlet property="collectionViewFlowLayout" destination="HsD-wA-n7K" id="zyn-Cb-krz"/>
                         <outlet property="memeCollectionView" destination="RY1-1j-xiy" id="M3j-RV-5zC"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="presentMemeEditorViewController" id="UBl-yF-kwa"/>
                     </connections>

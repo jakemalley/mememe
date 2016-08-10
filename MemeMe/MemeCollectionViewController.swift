@@ -20,7 +20,7 @@ class MemeCollectionViewController: UICollectionViewController {
     
     // MARK: Outlets
     @IBOutlet weak var memeCollectionView: UICollectionView!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
 
     // MARK: Actions
     @IBAction func addNewMeme(sender: AnyObject) {
@@ -30,7 +30,6 @@ class MemeCollectionViewController: UICollectionViewController {
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Configure the collection layout.
         configureFlowLayout(self.view.frame.size)
     }
@@ -47,14 +46,15 @@ class MemeCollectionViewController: UICollectionViewController {
     
     // MARK: Flow Layout
     func configureFlowLayout(size: CGSize) {
+        if let collectionViewFlowLayout = self.collectionViewFlowLayout {
+            let flowLayoutSpacing: CGFloat = 3.0
+            // As suggested by user: pauls; https://discussions.udacity.com/t/mememe-collectionview-flow-layout/39382/3
+            let dimension:CGFloat = size.width >= size.height ? (size.width - (5 * flowLayoutSpacing)) / 4.0 :  (size.width - (2 * flowLayoutSpacing)) / 3.0
         
-        let space: CGFloat = 3.0
-        // As suggested by user: pauls; https://discussions.udacity.com/t/mememe-collectionview-flow-layout/39382/3
-        let dimension:CGFloat = size.width >= size.height ? (size.width - (5 * space)) / 4.0 :  (size.width - (2 * space)) / 3.0
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+            collectionViewFlowLayout.minimumInteritemSpacing = flowLayoutSpacing
+            collectionViewFlowLayout.minimumLineSpacing = flowLayoutSpacing
+            collectionViewFlowLayout.itemSize = CGSizeMake(dimension, dimension)
+        }
     }
 
     // MARK: Collection View Data Source

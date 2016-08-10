@@ -177,6 +177,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func displayImagePicker(imageSourceType: UIImagePickerControllerSourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.allowsEditing = true
         pickerController.sourceType = imageSourceType
         presentViewController(pickerController, animated: true, completion: nil)
     }
@@ -187,7 +188,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.memeImageView.contentMode = UIViewContentMode.ScaleAspectFit
             self.memeImageView.image = image
         }
