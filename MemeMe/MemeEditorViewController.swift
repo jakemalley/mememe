@@ -1,5 +1,5 @@
 //
-//  CreateMemeViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Jake Malley on 08/08/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Constants
     let customTextAttributes = [
@@ -32,7 +32,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imagePickerToolbar: UIToolbar!
     
     // MARK: Actions
-    @IBAction func shareActionButton(sender: AnyObject) {
+    @IBAction func shareButtonPressed(sender: AnyObject) {
         // Generate the memed imaged.
         let memedImage = generateMemedImage()
         // Create the activity view controller.
@@ -51,15 +51,16 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(shareActivityViewController, animated: true, completion: nil)
     }
 
-    @IBAction func cancelButton(sender: AnyObject) {
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
         // When the cancel button is pressed, dismiss the keyboard.
-        dismissKeyboard()
+        //dismissKeyboard()
         // Remove the image.
-        memeImageView.image = nil
+        //memeImageView.image = nil
         // Reset the text.
-        resetTextFields()
+        //resetTextFields()
         // Disable the shae button.
-        shareButton.enabled = false
+        //shareButton.enabled = false
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func pickImageFromCamera(sender: AnyObject) {
@@ -78,18 +79,13 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         
         // When a user taps, call the dismiss keyboard.
         // Based on: http://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateMemeViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MemeEditorViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         // Configure the textfields.
         configureTextField(topTextField, delegate: topTextFieldDelegate)
         configureTextField(bottomTextField, delegate: bottomTextFieldDelegate)
         
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        // Prefer the status bar to be hidden.
-        return true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -125,10 +121,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     func subscribeToKeyboardNotifications(){
         // Subscribe to keyboard show notifications.
         NSNotificationCenter.defaultCenter()
-            .addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+            .addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         // Subscribe to keyboard hide notifications.
         NSNotificationCenter
-            .defaultCenter().addObserver(self, selector: #selector(CreateMemeViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+            .defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeToKeyboardNotifications(){
@@ -201,10 +197,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: Sharing
     func save() {
-        //  Generate the memed image.
-        let memedImage = generateMemedImage()
         // Create new meme.
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: self.memeImageView.image!, memedImaged: memedImage)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: self.memeImageView.image!, memedImaged: generateMemedImage(), dateCreated: NSDate())
+        // Add meme to the memes array in the app delegate.
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
@@ -223,6 +219,5 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         
         return memedImage
     }
-
 }
 
