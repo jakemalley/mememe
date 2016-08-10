@@ -222,11 +222,11 @@
             </objects>
             <point key="canvasLocation" x="1092" y="-16"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Lul-rt-Je7">
             <objects>
                 <navigationController id="BcO-Kb-YBc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="n3s-9e-OBb"/>
+                    <tabBarItem key="tabBarItem" title="" image="collection" id="n3s-9e-OBb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nhs-5q-OAa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -239,11 +239,11 @@
             </objects>
             <point key="canvasLocation" x="323" y="810"/>
         </scene>
-        <!--Memes-->
+        <!--Navigation Controller-->
         <scene sceneID="Hll-zd-Avg">
             <objects>
                 <navigationController id="mjL-c6-0EN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Memes" id="AOX-b0-ryU"/>
+                    <tabBarItem key="tabBarItem" title="" image="table" id="AOX-b0-ryU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eWP-Ms-9I0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -339,7 +339,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="collection" width="30" height="30"/>
         <image name="splashScreen" width="512" height="512"/>
+        <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UBl-yF-kwa"/>
